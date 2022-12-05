@@ -8,7 +8,6 @@ import './App.css';
 
 const { TabPane } = Tabs;
 const { Link } = Typography;
-let flag = false;
 let isFetchingTopicData:boolean = false;
 const visitTopScore = ()=> {
   window.location.href = 'https://cnodejs.org/users/top100'
@@ -41,7 +40,6 @@ const App = () => {
     [tabValue, setTopicData, pageCurrent]
   );
   const onChangeTab = useCallback((key: string)=> {
-    console.log(key);
     const curTab = cNodeSearchTabs.find(item=>item.key===key)?.key;
     setTabValue(curTab);
     //切换tab的话返回第一页
@@ -51,17 +49,13 @@ const App = () => {
   [setTabValue, getHomePageData]);
 
   const changePagination = useCallback((page, pageSize)=> {
-    console.log('test', page, pageSize)
     getHomePageData(tabValue, page)
     setPageCurrent(page)
   },
   [getHomePageData, setPageCurrent, tabValue])
 
   useMount(()=>{
-    if (!flag) {
-      getHomePageData()
-      flag = true
-    }
+    getHomePageData()
   })
   return (
     <div className="App">
@@ -98,7 +92,7 @@ const App = () => {
               menuLink.map((item)=> {
                 return (
                   <div key={item.label} className='cnode-title-menu-link'>
-                    <a href={item.href} target='_blank' className='link-label'>{item.label}</a>
+                    <a href={item.href} target='_blank' className='link-label' rel="noopener noreferrer">{item.label}</a>
                   </div>
                 )
               })
@@ -247,7 +241,7 @@ const App = () => {
             {
               topScoreTopic.map(item=> {
                 return (
-                  <div className='cnode-score-topic'>
+                  <div className='cnode-score-topic' key={item.author}>
                     <span className='cnode-score-visit-number'>{item.visitNumber}</span>
                     <span className='cnode-score-topic-link' 
                     onClick={()=> {

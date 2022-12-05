@@ -7,7 +7,6 @@ export const formatVisitDate = (date)=> {
   if (timeDiff<60) {
     result=`${timeDiff}秒前`
   } else if (timeDiff<3600) {
-    // 分钟
     let timeMinute = Math.ceil(timeDiff/60)
     result=`${timeMinute}分前`
   } else if (timeDiff<3600*24) {
@@ -23,6 +22,5 @@ export const formatVisitDate = (date)=> {
     let timeY = Math.ceil(timeDiff / (3600*24*30*365))
     result=`${timeY}年前`
   }
-  console.log('result', result)
   return result
 }
