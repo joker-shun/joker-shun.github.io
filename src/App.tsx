@@ -15,17 +15,18 @@ const visitTopScore = ()=> {
 const App = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [topicData, setTopicData] = useState<any[]>([]);
+  const [isFirstLoading, setIsFirstLoading] = useState<boolean>(true);  
   const [pageCurrent, setPageCurrent] = useState<number>(1);
   const [tabValue, setTabValue] = useState(cNodeSearchTabs[0].key);
   const getHomePageData = useCallback(
-    async(currentTab=tabValue, pageValue=pageCurrent) => {
+    async(currentTab = tabValue, pageValue = pageCurrent) => {
       const params = {
         page: pageValue,
         tab: currentTab,
         limit: 40,
       };
       try {
-        isFetchingTopicData=true;
+        isFetchingTopicData = true;
         const res = await apiGetHomePageTopic(params);
         if (res.success) {
           setTopicData(res.data)
@@ -40,7 +41,7 @@ const App = () => {
     [tabValue, setTopicData, pageCurrent]
   );
   const onChangeTab = useCallback((key: string)=> {
-    const curTab = cNodeSearchTabs.find(item=>item.key===key)?.key;
+    const curTab = cNodeSearchTabs.find(item => item.key === key)?.key;
     setTabValue(curTab);
     //切换tab的话返回第一页
     getHomePageData(curTab, 1);
@@ -55,13 +56,14 @@ const App = () => {
   [getHomePageData, setPageCurrent, tabValue])
 
   useMount(()=>{
-    getHomePageData()
+    getHomePageData();
+    setIsFirstLoading(false)
   })
   return (
     <div className="App">
       <header className="App-header">
         <div className='cnode-title'>
-          <div className='conde-title-search'>
+          <div className='cnode-title-search'>
             <div className='cnode-icon'>
               <a href="/">
                 <img src="//static2.cnodejs.org/public/images/cnodejs_light.svg" alt="网不好" />
@@ -101,7 +103,7 @@ const App = () => {
         </div>
       </header>
       <main className='main-content'>
-        <Spin size='large' spinning={isFetchingTopicData}>
+        <Spin size='large' spinning={isFetchingTopicData || isFirstLoading }>
           <div className='main-content-left'>
             <div className='cnode-tab'>
               <Tabs defaultActiveKey={tabValue} onChange={onChangeTab}>
@@ -164,7 +166,7 @@ const App = () => {
                             !item.top && !item.good && (
                               <div className='main-content-topic-common-title'>
                                 {
-                                  cNodeSearchTabs.find(tabItem=>
+                                  cNodeSearchTabs.find(tabItem =>
                                     tabItem.key === item.tab
                                   ).label
                                 }
@@ -220,7 +222,7 @@ const App = () => {
               <div className='cnode-reply-title-text'>无人回复的话题</div>
             </div>
             {
-              noReplyTopic.map(item=> {
+              noReplyTopic.map(item => {
                 return (
                   <div className='cnode-reply-topic' key={item.link}>
                     <Link href={item.link} target="_blank">
@@ -239,7 +241,7 @@ const App = () => {
               </div>
             </div>
             {
-              topScoreTopic.map(item=> {
+              topScoreTopic.map(item => {
                 return (
                   <div className='cnode-score-topic' key={item.author}>
                     <span className='cnode-score-visit-number'>{item.visitNumber}</span>
