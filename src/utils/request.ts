@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // 创建axios实例。统一配置
 const service = axios.create({
-  baseURL: '/api/v1', // api的base_url
+  baseURL: 'https://cnodejs.org/api/v1', // api的base_url
   // timeout: 5000 // 请求超时时间
   // .... 其他信息
 })
