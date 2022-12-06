@@ -8,14 +8,13 @@ import './App.css';
 
 const { TabPane } = Tabs;
 const { Link } = Typography;
-let isFetchingTopicData:boolean = false;
 const visitTopScore = ()=> {
   window.location.href = 'https://cnodejs.org/users/top100'
 }
 const App = () => {
   const [searchValue, setSearchValue] = useState<string>('');
   const [topicData, setTopicData] = useState<any[]>([]);
-  const [isFirstLoading, setIsFirstLoading] = useState<boolean>(true);  
+  const [isFetchingHomePage, setIsFetchingHomePage] = useState<boolean>(false);  
   const [pageCurrent, setPageCurrent] = useState<number>(1);
   const [tabValue, setTabValue] = useState(cNodeSearchTabs[0].key);
   const getHomePageData = useCallback(
@@ -26,16 +25,15 @@ const App = () => {
         limit: 40,
       };
       try {
-        isFetchingTopicData = true;
+        setIsFetchingHomePage(true);
         const res = await apiGetHomePageTopic(params);
         if (res.success) {
           setTopicData(res.data)
         }
-        console.log('res:', res)
       } catch (e) {
         console.error(e);
       } finally {
-        isFetchingTopicData=false
+        setIsFetchingHomePage(false);
       }
     },
     [tabValue, setTopicData, pageCurrent]
@@ -57,7 +55,6 @@ const App = () => {
 
   useMount(()=>{
     getHomePageData();
-    setIsFirstLoading(false)
   })
   return (
     <div className="App">
@@ -77,7 +74,6 @@ const App = () => {
                   value={searchValue}
                   watermark={'请输入内容'}
                   onChange={(v) => {
-                    console.log('wwww', v)
                     setSearchValue(v);
                   }}
                   onEnter={
@@ -103,7 +99,7 @@ const App = () => {
         </div>
       </header>
       <main className='main-content'>
-        <Spin size='large' spinning={isFetchingTopicData || isFirstLoading }>
+        <Spin size='large' spinning={isFetchingHomePage}>
           <div className='main-content-left'>
             <div className='cnode-tab'>
               <Tabs defaultActiveKey={tabValue} onChange={onChangeTab}>
