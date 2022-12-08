@@ -1,0 +1,80 @@
+.main-content-right {
+  flex: 1;
+  margin-right: 100px;
+  margin-left: 20px;
+  .cnode-login {
+    padding: 10px;
+    border-radius: 0 0 3px 3px;
+    background-color: #fff;
+    .cnode-login-introduction {
+      margin-top: 5px;
+      text-align: left;
+    }
+    .cnode-login-operator {
+      text-align: left;
+      font-size: 13px;
+    }
+  }
+}
+
+.main-content-right-login {
+  width: 150px;
+  height: 34px;
+}
+
+.cnode-reply,.cnode-score, .cnode-group {
+  margin-top: 10px;
+  border-radius: 0 0 3px 3px;
+  background-color: #fff;
+  text-align: left;
+  padding-bottom: 10px;
+}
+
+.cnode-reply-title, .cnode-score-title, .cnode-group-title {
+  background-color: #fbf9f9;
+  font-size: 13px;
+}
+
+.cnode-reply-title-text, .cnode-score-title-text,.cnode-group-title-text {
+  padding: 10px;
+}
+
+.cnode-reply-topic, .cnode-score-topic, .cnode-group-title-image {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.cnode-score-topic {
+  display: flex;
+}
+
+.cnode-group-title-image {
+  cursor: pointer;
+}
+
+.cnode-reply-topic {
+  width: 270px;
+  font-size: 14px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.cnode-reply .bi-typography {
+  color: #778087!important;
+}
+
+.cnode-score-topic-link {
+  margin-left: 16px;
+  cursor: pointer;
+}
+
+.cnode-score-visit-number, .cnode-score-topic-link {
+  font-size: 12px;
+  color: #778087;
+}
+
+.cnode-score-visit-number {
+  width: 36px;
+}

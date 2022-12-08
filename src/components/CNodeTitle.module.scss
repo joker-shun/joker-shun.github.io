@@ -1,0 +1,45 @@
+.cnode-title {
+  display: flex;
+  z-index: 999;
+  background: #444;
+  .cnode-title-search {
+    display: flex;
+    margin: 10px 0px 10px 20px;
+    .cnode-icon {
+      width: 120px;
+      margin-top: 12px
+    }
+    .cnode-input {
+      margin-top: 6px;
+      margin-left: 20px;
+    }
+  }
+  .cnode-title-menu {
+    display: flex;
+    margin-left:auto;
+    margin-top: 16px;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    .cnode-title-menu-link {
+      margin-left: 16px;
+      margin-top: 12px;
+      text-shadow: none;
+      font-size: 13px;
+      .link-label {
+        text-decoration:none;
+        color: #ccc;
+      }
+    }
+  }
+}
+
+:global(.bi-search-editor) {
+  border-radius: 15px;
+}
+
+
+:global(.bi-input) {
+  color: white
+}
+
+  

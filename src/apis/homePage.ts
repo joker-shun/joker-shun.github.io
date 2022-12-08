@@ -1,9 +1,9 @@
-import request from '../utils/request'
+import request from "../utils/request";
 
-export const apiGetHomePageTopic = function (params) {
+export const apiGetHomePageTopic = (params) => {
   return request({
-    url: '/topics',
-    method: 'get',
-    params: params
-  })
-}
+    url: "/topics",
+    method: "get",
+    params,
+  });
+};
