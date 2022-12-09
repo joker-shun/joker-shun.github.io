@@ -1,6 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import { Button, Typography } from "@fineui/react";
-import { noReplyTopic, topScoreTopic } from "../common/cnode";
+import {
+  noReplyTopic,
+  topScoreTopic,
+  communityImageUrl,
+} from "../common/cnode";
+import CNodeCommunityItem from "../components/CNodeCommunityItem";
 import styles from "./CNodePane.module.scss";
 interface Props {
   topicData: any[];
@@ -70,51 +75,11 @@ const CNodePane: FC<Props> = () => {
           );
         })}
       </div>
-      <div className={styles["cnode-group"]}>
-        <div className={styles["cnode-group-title"]}>
-          <div className={styles["cnode-group-title-text"]}>
-            <span>友情社区</span>
-          </div>
-        </div>
-        <div className={styles["cnode-group-title-image"]}>
-          <img
-            src="https://static2.cnodejs.org/public/images/ruby-china-20150529.png"
-            width="150"
-            height="50"
-            alt=""
-          />
-        </div>
-        <div className={styles["cnode-group-title-image"]}>
-          <img
-            src="https://static2.cnodejs.org/public/images/golangtc-logo.png"
-            width="150"
-            height="50"
-            alt=""
-          />
-        </div>
-        <div className={styles["cnode-group-title-image"]}>
-          <img
-            src="https://static2.cnodejs.org/public/images/phphub-logo.png"
-            width="150"
-            height="50"
-            alt=""
-          />
-        </div>
-      </div>
-      <div className={styles["cnode-group"]}>
-        <div className={styles["cnode-group-title"]}>
-          <div className={styles["cnode-group-title-text"]}>
-            <span>客户端二维码</span>
-          </div>
-        </div>
-        <div className={styles["cnode-group-title-image"]}>
-          <img
-            src="https://static.cnodejs.org/FtG0YVgQ6iginiLpf9W4_ShjiLfU"
-            width="200"
-            alt=""
-          />
-        </div>
-      </div>
+      <CNodeCommunityItem title={"友情社区"} imageUrl={communityImageUrl} />
+      <CNodeCommunityItem
+        title={"客户端二维码"}
+        imageUrl={"https://static.cnodejs.org/FtG0YVgQ6iginiLpf9W4_ShjiLfU"}
+      />
     </div>
   );
 };

@@ -4,23 +4,21 @@ export const formatVisitDate = (date) => {
   let result: string;
   const dateMoment = moment(date);
   const timeDiff = now.diff(dateMoment, "seconds");
-  if (timeDiff < 60) {
-    result = `${timeDiff}秒前`;
-  } else if (timeDiff < 3600) {
-    const timeMinute = Math.ceil(timeDiff / 60);
-    result = `${timeMinute}分前`;
-  } else if (timeDiff < 3600 * 24) {
-    const timeH = Math.ceil(timeDiff / 3600);
-    result = `${timeH}小时前`;
-  } else if (timeDiff < 3600 * 24 * 30) {
-    const timeD = Math.ceil(timeDiff / (3600 * 24));
-    result = `${timeD}天前`;
-  } else if (timeDiff < 3600 * 24 * 30 * 365) {
-    const timeM = Math.ceil(timeDiff / (3600 * 24 * 30));
-    result = `${timeM}月前`;
-  } else {
-    const timeY = Math.ceil(timeDiff / (3600 * 24 * 30 * 365));
-    result = `${timeY}年前`;
+  const timeMap = {
+    秒前: 1,
+    分钟前: 60,
+    小时前: 3600,
+    天前: 3600 * 24,
+    个月前: 3600 * 24 * 30,
+    年前: 3600 * 24 * 30 * 365,
+  };
+  let tempKey = "秒前";
+  for (const each in timeMap) {
+    if (timeDiff / timeMap[each] < 1) {
+      result = Math.round(timeDiff / timeMap[tempKey]) + tempKey;
+      break;
+    }
+    tempKey = each;
   }
 
   return result;

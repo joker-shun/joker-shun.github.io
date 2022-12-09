@@ -1,0 +1,20 @@
+.cnode-group {
+  margin-top: 10px;
+  border-radius: 0 0 3px 3px;
+  background-color: #fff;
+  text-align: left;
+  padding-bottom: 10px;
+  .cnode-group-title {
+    background-color: #fbf9f9;
+    font-size: 13px;
+    .cnode-group-title-text {
+      padding: 10px;
+    }
+  }
+  .cnode-group-title-image {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+}

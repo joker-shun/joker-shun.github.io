@@ -131,4 +131,16 @@ const topScoreTopic = [
   },
 ];
 
-export { menuLink, cNodeSearchTabs, noReplyTopic, topScoreTopic };
+const communityImageUrl = [
+  "https://static2.cnodejs.org/public/images/ruby-china-20150529.png",
+  "https://static2.cnodejs.org/public/images/golangtc-logo.png",
+  "https://static2.cnodejs.org/public/images/phphub-logo.png",
+];
+
+export {
+  menuLink,
+  cNodeSearchTabs,
+  noReplyTopic,
+  topScoreTopic,
+  communityImageUrl,
+};

@@ -22,7 +22,7 @@
   height: 34px;
 }
 
-.cnode-reply,.cnode-score, .cnode-group {
+.cnode-reply,.cnode-score {
   margin-top: 10px;
   border-radius: 0 0 3px 3px;
   background-color: #fff;
@@ -30,16 +30,16 @@
   padding-bottom: 10px;
 }
 
-.cnode-reply-title, .cnode-score-title, .cnode-group-title {
+.cnode-reply-title, .cnode-score-title {
   background-color: #fbf9f9;
   font-size: 13px;
 }
 
-.cnode-reply-title-text, .cnode-score-title-text,.cnode-group-title-text {
+.cnode-reply-title-text, .cnode-score-title-text {
   padding: 10px;
 }
 
-.cnode-reply-topic, .cnode-score-topic, .cnode-group-title-image {
+.cnode-reply-topic, .cnode-score-topic {
   margin-left: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -47,10 +47,6 @@
 
 .cnode-score-topic {
   display: flex;
-}
-
-.cnode-group-title-image {
-  cursor: pointer;
 }
 
 .cnode-reply-topic {
