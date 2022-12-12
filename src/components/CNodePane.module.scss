@@ -2,24 +2,6 @@
   flex: 1;
   margin-right: 100px;
   margin-left: 20px;
-  .cnode-login {
-    padding: 10px;
-    border-radius: 0 0 3px 3px;
-    background-color: #fff;
-    .cnode-login-introduction {
-      margin-top: 5px;
-      text-align: left;
-    }
-    .cnode-login-operator {
-      text-align: left;
-      font-size: 13px;
-    }
-  }
-}
-
-.main-content-right-login {
-  width: 150px;
-  height: 34px;
 }
 
 .cnode-reply,.cnode-score {
@@ -37,24 +19,6 @@
 
 .cnode-reply-title-text, .cnode-score-title-text {
   padding: 10px;
-}
-
-.cnode-reply-topic, .cnode-score-topic {
-  margin-left: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
-.cnode-score-topic {
-  display: flex;
-}
-
-.cnode-reply-topic {
-  width: 270px;
-  font-size: 14px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
 }
 
 .cnode-reply .bi-typography {

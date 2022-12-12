@@ -1,10 +1,25 @@
 import React, { FC } from "react";
-import { Button, Typography } from "@fineui/react";
+import {
+  Button,
+  Typography,
+  VerticalLayout,
+  HorizontalLayout,
+  Layout,
+} from "@fineui/react";
 import {
   noReplyTopic,
   topScoreTopic,
   communityImageUrl,
 } from "../common/cnode";
+import {
+  verticalLayoutProps,
+  layoutIntroductionProps,
+  verticalLoginOperatorProps,
+  layoutRightLoginProps,
+  layoutTextLoginProps,
+  horizontalLayoutProps,
+  verticalLayoutReplyProps,
+} from "../common/cnodeStyleProps";
 import CNodeCommunityItem from "../components/CNodeCommunityItem";
 import styles from "./CNodePane.module.scss";
 interface Props {
@@ -16,34 +31,33 @@ const { Link } = Typography;
 const visitTopScore = () => {
   window.location.href = "https://cnodejs.org/users/top100";
 };
+
 const CNodePane: FC<Props> = () => {
   return (
     <div className={styles["main-content-right"]}>
-      <div className={styles["cnode-login"]}>
-        <p className={styles["cnode-login-introduction"]}>
-          CNode: Node.js专业中文社区
-        </p>
-        <div className={styles["cnode-login-operator"]}>
-          <p>
+      <VerticalLayout {...verticalLayoutProps}>
+        <Layout {...layoutIntroductionProps}>CNode: Node.js专业中文社区</Layout>
+        <VerticalLayout {...verticalLoginOperatorProps}>
+          <Layout {...layoutTextLoginProps}>
             您可以
             <a href="/">登录</a>或<a href="/">注册</a>
-          </p>
-          <div className={styles["main-content-right-login"]}>
+          </Layout>
+          <Layout {...layoutRightLoginProps}>
             <Button level="common">通过gitHub登录</Button>
-          </div>
-        </div>
-      </div>
+          </Layout>
+        </VerticalLayout>
+      </VerticalLayout>
       <div className={styles["cnode-reply"]}>
         <div className={styles["cnode-reply-title"]}>
           <div className={styles["cnode-reply-title-text"]}>无人回复的话题</div>
         </div>
         {noReplyTopic.map((item) => {
           return (
-            <div className={styles["cnode-reply-topic"]} key={item.link}>
+            <VerticalLayout {...verticalLayoutReplyProps} key={item.link}>
               <Link href={item.link} target="_blank">
                 {item.label}
               </Link>
-            </div>
+            </VerticalLayout>
           );
         })}
       </div>
@@ -59,7 +73,7 @@ const CNodePane: FC<Props> = () => {
         </div>
         {topScoreTopic.map((item) => {
           return (
-            <div className={styles["cnode-score-topic"]} key={item.author}>
+            <HorizontalLayout {...horizontalLayoutProps} key={item.author}>
               <div className={styles["cnode-score-visit-number"]}>
                 {item.visitNumber}
               </div>
@@ -71,7 +85,7 @@ const CNodePane: FC<Props> = () => {
               >
                 {item.author}
               </div>
-            </div>
+            </HorizontalLayout>
           );
         })}
       </div>
