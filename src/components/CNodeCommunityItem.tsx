@@ -3,7 +3,7 @@ import styles from "./CNodeCommunityItem.module.scss";
 
 interface Props {
   title: string;
-  imageUrl: string | any[];
+  imageUrl: string | string[];
 }
 
 const CNodeCommunityItem: FC<Props> = ({ title, imageUrl }) => {

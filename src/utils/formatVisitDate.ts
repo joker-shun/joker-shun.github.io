@@ -13,12 +13,12 @@ export const formatVisitDate = (date) => {
     年前: 3600 * 24 * 30 * 365,
   };
   let tempKey = "秒前";
-  for (const each in timeMap) {
-    if (timeDiff / timeMap[each] < 1) {
+  for (const timeKey in timeMap) {
+    if (timeDiff / timeMap[timeKey] < 1) {
       result = Math.round(timeDiff / timeMap[tempKey]) + tempKey;
       break;
     }
-    tempKey = each;
+    tempKey = timeKey;
   }
 
   return result;

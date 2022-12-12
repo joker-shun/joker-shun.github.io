@@ -22,17 +22,13 @@ import {
 } from "../common/cnodeStyleProps";
 import CNodeCommunityItem from "../components/CNodeCommunityItem";
 import styles from "./CNodePane.module.scss";
-interface Props {
-  topicData: any[];
-  getHomePageData: (currentTab: string, pageValue: number) => void;
-}
 
 const { Link } = Typography;
 const visitTopScore = () => {
   window.location.href = "https://cnodejs.org/users/top100";
 };
 
-const CNodePane: FC<Props> = () => {
+const CNodePane: FC = () => {
   return (
     <div className={styles["main-content-right"]}>
       <VerticalLayout {...verticalLayoutProps}>

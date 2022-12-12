@@ -1,11 +1,12 @@
 import React, { FC, useState, useCallback } from "react";
 import { cNodeSearchTabs } from "../common/cnode";
+import { topicDataType } from ".././common/type";
 import { Tabs, PopCombo, Label, Pagination, Typography } from "@fineui/react";
 import { formatVisitDate } from "../utils/formatVisitDate";
 import styles from "./CNodeTopic.module.scss";
 
 interface Props {
-  topicData: any[];
+  topicData: topicDataType[];
   getHomePageData: (currentTab: string, pageValue: number) => void;
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import { useMount } from "ahooks";
 import { Spin } from "@fineui/react";
+import { topicDataType } from "./common/type";
 import { apiGetHomePageTopic } from "./apis/homePage";
 import { cNodeSearchTabs } from "./common/cnode";
 import CNodeTitle from "./components/CNodeTitle";
@@ -11,7 +12,7 @@ import styles from "./App.module.scss";
 
 const App = () => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [topicData, setTopicData] = useState<any[]>([]);
+  const [topicData, setTopicData] = useState<topicDataType[]>([]);
   const [isFetchingHomePage, setIsFetchingHomePage] = useState<boolean>(false);
   const [isShowJumper, setIsShowJumper] = useState<boolean>(false);
   const getHomePageData = useCallback(
