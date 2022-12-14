@@ -15,7 +15,7 @@ const CNodeTitle: FC<Props> = ({ searchValue, setSearchValue }) => {
           <a href="/">
             <img
               src="//static2.cnodejs.org/public/images/cnodejs_light.svg"
-              alt="网不好"
+              alt="网不好了"
             />
           </a>
         </div>
